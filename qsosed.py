@@ -182,7 +182,7 @@ class Quasar_sed:
         galaxy_template : array, optional
             Host-galaxy SED template.
             Array must have structure [lambda, f_lambda].
-            Default is an Sb galaxy template from the SWIRE library.
+            Default is an S0 galaxy template from the SWIRE library.
 
         """
         if params is None:
