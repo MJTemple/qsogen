@@ -2,11 +2,11 @@
 Introduction
 ------------
 
-`qsogen` is a collection of Python code to model quasar colours, magnitudes and SEDs.
-It requires numpy, scipy, and astropy; the examples below also use matplotlib. 
+`qsogen` is a collection of Python code to model Quasar colours, magnitudes and SEDs.
+It requires `numpy`, `scipy`, and `astropy`; the examples below also use `matplotlib`. 
 
-The code has been written on a Linux machine running RHEL7 and Python 3.6.7,
-with astropy 4.0, matplotlib 3.0.2, numpy 1.16.2 and scipy 1.2.1 from anaconda3.
+The code has been written on a RHEL7 Linux machine running `Python 3.6.7`,
+with `astropy 4.0`, `matplotlib 3.0.2`, `numpy 1.16.2` and `scipy 1.2.1` from `anaconda3`.
 
 The code was written by Matthew Temple, with core functionality translated from
 earlier FORTRAN code written by Paul Hewett. The structure of the model is
@@ -31,32 +31,39 @@ File descriptions
 
 The required code files are:
 
-1. qsosed.py
+1. `qsosed.py`
 
-    Defines a class `Quasar_sed`, which generates an instance of the model SED.
+Defines a class `Quasar_sed`, which generates an instance of the model SED.
     To print documentation for `Quasar_sed`, including a description of input
-    parameters, run 'python qsosed.py' from the terminal.
+    parameters, run `python qsosed.py` from the terminal.
     
-2. config.py
+2. `config.py`
 
-    Contains a dictionary of parameters which are passed to Quasar_sed.
-    All parameters can be overruled by passsing them as **kwargs to Quasar_sed.
+Contains a dictionary of parameters, `params`, which are passed to `Quasar_sed`.
+    All parameters can be overruled by passsing them as `**kwargs` to `Quasar_sed`.
     
-3. model_colours.py
+3. `model_colours.py`
 
-    Defines functions `get_colours` and `get_mags` which return arrays of model
+Defines functions `get_colours` and `get_mags` which return arrays of model
     colours and model magnitudes, respectively, for a given set of redshifts.
     Model parameters can be passed as `**kwargs` to `Quasar_sed` which overwrite
-    settings from config.py.
+    settings from `config.py`.
 
-The model also requires some additional input files, which are 
-the Emission line templates, the S0 galaxy template from SWIRE, and the Quasar extinction curve:  
+The model also requires some additional input files, which are:
 
-* qsosed_emlines.dat    
-* S0_template_norm.sed   
-* pl_ext_comp_03.sph    
+4. `qsosed_emlines.dat` 
 
-If you want to use model_colours.py, you also need filter response files in the
+the emission line templates,
+
+5. `S0_template_norm.sed`
+
+the S0 galaxy template from SWIRE, and
+
+6. `pl_ext_comp_03.sph`  
+
+the Quasar extinction curve.
+
+If you want to generate synthetic photometry using `model_colours.py`, you also need filter response files in the
 same directory, which must have the form [wavelength in A, filter response].
 
 Those filter response files currently provided are:
@@ -134,9 +141,9 @@ A very crude approximation for converting between these parameters is
 Example use cases
 -----------------
 
+
+Create and plot a z=2 quasar model using the default parameters in rest frame:
 ```python
-# Create and plot a z=2 quasar model using the default parameters in rest frame
-#
 >>> from qsosed import Quasar_sed
 >>> import matplotlib.pyplot as plt
 >>> Quasar2 = Quasar_sed(z=2)
@@ -144,49 +151,52 @@ Example use cases
 >>> plt.plot(Quasar2.wavlen, Quasar2.flux)
 >>> plt.xlabel('Rest Wavlength [A]')
 >>> plt.ylabel('Flux density per unit wavlength')
-#
-# Plot the same model in the observed frame
-#
+```
+Plot the same model in the observed frame:
+```python
 >>> plt.subplots()
 >>> plt.loglog(Quasar2.wavred, Quasar2.wavred*Quasar2.flux, label='z=2 model')
 >>> plt.xlabel('Observed Wavelength [A]')
 >>> plt.ylabel('Flux density $\lambda F_\lambda$')
-#
-# Add a z=4 quasar model to the plot
-#
+```
+ Add a z=4 quasar model to the plot:
+```python
 >>> Quasar4 = Quasar_sed(z=4)
 >>> plt.loglog(Quasar4.wavred, Quasar4.wavred*Quasar4.flux, label='z=4 model')
 >>> plt.legend()
-#
-# Return intra-band colours for default filters SDSS-UKIDSS-WISE for z=[1,2,3]
-#
+```
+Return intra-band colours for default filters SDSS-UKIDSS-WISE for `z=[1,2,3]`:
+```python
 >>> from model_colours import get_colours
 >>> colours = get_colours([1,2,3])
 # colours[0] is (u-g, g-r, r-i, i-z, z-Y, Y-J, J-H, H-K, K-W1, W1-W2) for z=1
 # colours[1] is the same for z=2
 # colours[2] is the same for z=3
-#
-# get_colours() takes the same **kwargs as Quasar_sed:
+```
+`get_colours()` takes the same `**kwargs` as `Quasar_sed`:
+```python
 >>> redder_colours = get_colours([1,2,3], ebv=0.1)
 # redder_colours[0] is an array of colours for z=1 with extinction E(B-V)=0.1
-#
-# If you want to find colours for a different filter set, use a list of filters
-#
+```
+If you want to find colours for a different filter set, use a list of filters:
+```python
 >>> LSST_colours = get_colours([1,2,3],
 >>>                            filters=['LSST_u_AB', 'LSST_g_AB', 'LSST_r_AB',
 >>>                                     'LSST_i_AB', 'LSST_z_AB', 'LSST_y_AB',
 >>>                                     'Euclid_Y_AB', 'Euclid_J_AB',
 >>>                                     'Euclid_H_AB', 'WISE_W1_Vega',
 >>>                                     'WISE_W2_Vega'])
-#
-# get_mags() has same syntax as get_colours(), but returns synthetic magnitudes
-# instead of synthetic colours. See note on measures of luminosity above.
-# Example: fit model to observed ugriz photometry to estimate L3000 and E(B-V)
-#          for object of known redshift Z<2.3 (i.e. not u-band dropout)
-# Note the first arguement of get_mags is an array of redshifts [Z], and it
-# returns an array of arrays, so get_mags([2, 3])[0] is an array of magnitudes
-# for Z=2 and get_mags([2, 3])[1] is an array of magnitudes for Z=3.
-#
+```
+`get_mags()` has same syntax as `get_colours()`, but returns synthetic magnitudes
+instead of synthetic colours. See note on measures of luminosity above.
+
+Example: fit model to observed ugriz photometry to estimate L3000 and E(B-V)
+          for object of known redshift `z<2.3` (i.e. not u-band dropout)
+
+Note the first argument of `get_mags` is an array of redshifts `[z]`, and it
+ returns an array of arrays, so `get_mags([2, 3])[0]` is an array of magnitudes
+ for `z=2` and `get_mags([2, 3])[1]` is an array of magnitudes for `z=3`.
+```python
 >>> from model_colours import get_mags
 >>> import numpy as np
 >>> from scipy.optimize import curve_fit
@@ -200,10 +210,10 @@ Example use cases
 >>> popt, pcov = curve_fit(f, Z, observed_mags, p0=[46., 0.], sigma=observed_mag_errs)
 >>> popt[0]  # best-fitting LogL3000 of unreddened quasar, i.e. assuming E(B-V)=0
 >>> popt[1]  # best-ftting E(B-V)
-#
-# Explore the effect of dust reddening E(B-V), galaxy contribution, and emission
-# lines on colour-redshift tracks
-#
+```
+Explore the effect of dust reddening E(B-V), galaxy contribution, and emission
+ lines on colour-redshift tracks:
+```python
 >>> from model_colours import get_colours
 >>> import matplotlib.pyplot as plt
 >>> import numpy as np
@@ -250,17 +260,17 @@ Example use cases
 ----------
 Exceptions
 ----------
-Quasar_sed may raise an exception if the input wavelength array is unsuitable:
+Quasar_sed may raise one of two exceptions if the input wavelength array is unsuitable:
 
 `Exception('wavlen must be monotonic')`
 
-    The input wavelength array is not monotonically increasing. Ensure that the
+The input wavelength array is not monotonically increasing. Ensure that the
     input array 'wavlen' is sorted in increasing order.
 
 `Exception('wavlen must cover 4000-5000 A for galaxy normalisation'
            + '\n Redshift is {}'.format(self.z))`
 
-    If gflag=True, i.e. if the host galaxy component is switched on, then the
+If gflag=True, i.e. if the host galaxy component is switched on, then the
     input wavelength array 'wavlen' must cover the 4000-5000A region to ensure
     the correct normalisation of the galaxy component.
     If using get_colours or get_mags, this exception can occur if the filters
