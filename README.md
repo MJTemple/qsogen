@@ -107,7 +107,7 @@ A note on measures of luminosity
 
 There are two different measures of luminosity which can be input to the model.
 
-**LogL3000** controls the output monochromatic 3000A continuum luminosity in erg/s.
+**`LogL3000`** controls the output monochromatic 3000A continuum luminosity in erg/s.
     All this does is re-scale the output model SED appropriately.
     This should be used when you care about the absolute value of the flux units
     e.g. when using `get_mags` to return synthetic magnitudes, or using `get_mags`
@@ -116,7 +116,7 @@ There are two different measures of luminosity which can be input to the model.
     (NB. in such cases ebv should also be a free parameter).
     The default is to normalise the model such that L3000 = 10^46 erg/s.
 
-**M_i** represents the absolute i-band magnitude at z=2, as defined by Richards+ 
+**`M_i`** represents the absolute i-band magnitude at z=2, as defined by Richards+ 
     2006AJ....131.2766R and as adopted by the SDSS quasar catalogues.
     This parameter is used 'under the hood' to control the emission line 
     properties and the relative contribution of the host galaxy component.
@@ -270,15 +270,15 @@ The input wavelength array is not monotonically increasing. Ensure that the
 `Exception('wavlen must cover 4000-5000 A for galaxy normalisation'
            + '\n Redshift is {}'.format(self.z))`
 
-If gflag=True, i.e. if the host galaxy component is switched on, then the
+If `gflag=True`, i.e. if the host galaxy component is switched on, then the
     input wavelength array 'wavlen' must cover the 4000-5000A region to ensure
     the correct normalisation of the galaxy component.
-    If using get_colours or get_mags, this exception can occur if the filters
+    If using `get_colours` or `get_mags`, this exception can occur if the filters
     which have been chosen do not cover 4000-5000A in the rest frame.
     To avoid problems, it is highly recommended to use a dense set of filters
     which cover a wide wavelength range. For example, even if you only want
     LSST ugrizy colours for redshifts 0<z<5, it is preferable to find all
-    LSST-Euclid-WISE ugrizyYJHKW1W2 colours using get_colours(), and then take
+    LSST-Euclid-WISE ugrizyYJHKW1W2 colours using `get_colours()`, and then take
     the first 5 columns of the output matrix.
 
 In addition, if you pass a `**kwarg` to `Quasar_sed` which is not recognised, it
