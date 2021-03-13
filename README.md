@@ -2,7 +2,7 @@
 Introduction
 ------------
 
-qsogen is a collection of Python code to model quasar colours, magnitudes and SEDs.
+`qsogen` is a collection of Python code to model quasar colours, magnitudes and SEDs.
 It requires numpy, scipy, and astropy; the examples below also use matplotlib. 
 
 The code has been written on a Linux machine running RHEL7 and Python 3.6.7,
@@ -31,22 +31,22 @@ File descriptions
 
 The required code files are:
 
-qsosed.py
+1. qsosed.py
 
-    Defines a class Quasar_sed, which generates an instance of the model SED.
-    To print documentation for Quasar_sed, including a description of input
+    Defines a class `Quasar_sed`, which generates an instance of the model SED.
+    To print documentation for `Quasar_sed`, including a description of input
     parameters, run 'python qsosed.py' from the terminal.
     
-config.py
+2. config.py
 
     Contains a dictionary of parameters which are passed to Quasar_sed.
     All parameters can be overruled by passsing them as **kwargs to Quasar_sed.
     
-model_colours.py
+3. model_colours.py
 
-    Defines functions get_colours and get_mags which return arrays of model
+    Defines functions `get_colours` and `get_mags` which return arrays of model
     colours and model magnitudes, respectively, for a given set of redshifts.
-    Model parameters can be passed as **kwargs to Quasar_sed which overwrite
+    Model parameters can be passed as `**kwargs` to `Quasar_sed` which overwrite
     settings from config.py.
 
 The model also requires some additional input files, which are 
@@ -103,11 +103,10 @@ There are two different measures of luminosity which can be input to the model.
 **LogL3000** controls the output monochromatic 3000A continuum luminosity in erg/s.
     All this does is re-scale the output model SED appropriately.
     This should be used when you care about the absolute value of the flux units
-    e.g. when using get_mags to return synthetic magnitudes, or using get_mags
+    e.g. when using `get_mags` to return synthetic magnitudes, or using `get_mags`
     to fit the model to observed magnitudes and returning the luminosity of the
-    observed quasar. 
-    
-NB. in such cases ebv should also be a free parameter.
+    observed quasar
+    (NB. in such cases ebv should also be a free parameter).
     The default is to normalise the model such that L3000 = 10^46 erg/s.
 
 **M_i** represents the absolute i-band magnitude at z=2, as defined by Richards+ 
@@ -115,14 +114,14 @@ NB. in such cases ebv should also be a free parameter.
     This parameter is used 'under the hood' to control the emission line 
     properties and the relative contribution of the host galaxy component.
 
-The default settings are to use the average M_i as a function of redshift
+The default settings are to use the average `M_i` as a function of redshift
     from the sample of 18.6<i_AB<19.1 quasars in SDSS DR16Q. For exploring the
     properties of significantly brighter or fainter populations it is recommended
-    to input your own luminosity-redshift relation using the parameter zlum_lumval.
-    Alternatively, one can override the default settings and specify M_i exactly
+    to input your own luminosity-redshift relation using the parameter `zlum_lumval`.
+    Alternatively, one can override the default settings and specify `M_i` exactly
     for individual objects.
 
-Predicted values of M_i as a function of redshift and apparent magnitude
+Predicted values of `M_i` as a function of redshift and apparent magnitude
     can be approximated by 
 
 `M_i(z, i) = -log10(z)*(0.250*(i/20) + 5.050) - (17.40*(20/i) + 6.82)`
@@ -136,7 +135,6 @@ Example use cases
 -----------------
 
 ```python
-#
 # Create and plot a z=2 quasar model using the default parameters in rest frame
 #
 >>> from qsosed import Quasar_sed
