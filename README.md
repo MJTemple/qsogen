@@ -108,12 +108,12 @@ A note on measures of luminosity
 There are two different measures of luminosity which can be input to the model.
 
 **`LogL3000`** controls the output monochromatic 3000A continuum luminosity in erg/s.
-    All this does is re-scale the output model SED appropriately.
+    All this does is re-scale the output model flux appropriately.
     This should be used when you care about the absolute value of the flux units
     e.g. when using `get_mags` to return synthetic magnitudes, or using `get_mags`
     to fit the model to observed magnitudes and returning the luminosity of the
     observed quasar
-    (NB. in such cases ebv should also be a free parameter).
+    (NB. in such cases `ebv` should also be a free parameter).
     The default is to normalise the model such that L3000 = 10^46 erg/s.
 
 **`M_i`** represents the absolute i-band magnitude at z=2, as defined by Richards+ 
@@ -128,14 +128,14 @@ The default settings are to use the average `M_i` as a function of redshift
     Alternatively, one can override the default settings and specify `M_i` exactly
     for individual objects.
 
-Predicted values of `M_i` as a function of redshift and apparent magnitude
+Predicted values of `M_i` as a function of redshift and apparent i_AB magnitude
     can be approximated by 
 
 `M_i(z, i) = -log10(z)*(0.250*(i/20) + 5.050) - (17.40*(20/i) + 6.82)`
 
 A very crude approximation for converting between these parameters is
 
-`LogLbol = -0.4*MI + 36 = LogL3000 + 0.7`
+`LogLbol = -0.4*M_i + 36 = LogL3000 + 0.7`
 
 -----------------
 Example use cases
@@ -149,8 +149,8 @@ Create and plot a z=2 quasar model using the default parameters in rest frame:
 >>> Quasar2 = Quasar_sed(z=2)
 >>> plt.subplots()
 >>> plt.plot(Quasar2.wavlen, Quasar2.flux)
->>> plt.xlabel('Rest Wavlength [A]')
->>> plt.ylabel('Flux density per unit wavlength')
+>>> plt.xlabel('Rest Wavelength [A]')
+>>> plt.ylabel('Flux density per unit wavelength')
 ```
 Plot the same model in the observed frame:
 ```python
