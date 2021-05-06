@@ -116,8 +116,9 @@ There are two different measures of luminosity which can be input to the model.
     (NB. in such cases `ebv` should also be a free parameter).
     The default is to normalise the model such that L3000 = 10^46 erg/s.
 
-**`M_i`** represents the absolute i-band magnitude at z=2, as defined by Richards+ 
-    2006AJ....131.2766R and as adopted by the SDSS quasar catalogues.
+**`M_i`** represents the absolute i-band magnitude at z=2, as defined by 
+[Richards et al., 2006, AJ, 131, 2766](https://ui.adsabs.harvard.edu/abs/2006AJ....131.2766R/abstract)
+    and as adopted by the SDSS quasar catalogues.
     This parameter is used 'under the hood' to control the emission line 
     properties and the relative contribution of the host galaxy component.
 
