@@ -51,17 +51,18 @@ Defines functions `get_colours` and `get_mags` which return arrays of model
 
 The model also requires some additional input files, which are:
 
-4. `qsosed_emlines.dat` 
+4. `qsosed_emlines_20210625.dat` 
 
-the emission line templates,
+the emission line templates, with columns
+[wavelength in A, median line template, reference continuum, high-EW template, high-blueshift template, narrow line template],
 
 5. `S0_template_norm.sed`
 
-the S0 galaxy template from SWIRE, and
+the S0 galaxy template from SWIRE, with columns [wavelength in A, f_lambda], and
 
 6. `pl_ext_comp_03.sph`  
 
-the Quasar extinction curve.
+the Quasar extinction curve, with columns [wavelength in A, E(lambda-V)/E(B-V)].
 
 If you want to generate synthetic photometry using `model_colours.py`, you also need filter response files in the
 same directory, which must have the form [wavelength in A, filter response].
