@@ -5,7 +5,7 @@ Code to produce model quasar SEDs.
 See accompanying README file for further details.
 
 Need accompanying config.py file and three additional input files:
-qsosed_emlines.dat    Emission line templates
+qsosed_emlines_20210625.dat    Emission line templates
 S0_template_norm.sed   Host galaxy template
 pl_ext_comp_03.sph    Quasar extinction curve
 
