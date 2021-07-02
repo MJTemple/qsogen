@@ -44,9 +44,14 @@ model_colours.py
     settings from config.py.
 
 In addition, for the model to run, it requires some additional input files:
-qsosed_emlines.dat    Emission line templates
-S0_template_norm.sed   S0 galaxy template from SWIRE
-pl_ext_comp_03.sph    Quasar extinction curve
+qsosed_emlines.dat
+    Emission line templates, with columns
+    [wavelength in A, median line template, reference continuum,
+    high-EW template, high-blueshift template, narrow line template]
+S0_template_norm.sed
+    S0 galaxy template from SWIRE, with columns [wavelength in A, f_lambda]
+pl_ext_comp_03.sph
+    Quasar extinction curve, with columns [wavelength in A, E(lambda-V)/E(B-V)]
 
 If you want to use model_colours.py, you also need filter response files in the
 same directory, which must have the form [wavelength in A, filter response].
