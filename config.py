@@ -24,6 +24,10 @@ galaxy_template = np.genfromtxt(f2, unpack=True)
 
 f3 = 'pl_ext_comp_03.sph'
 reddening_curve = np.genfromtxt(f3, unpack=True)
+# Extinction curve, format: [lambda, E(lambda-V)/E(B-V)]
+# Recall flux_reddened(lambda) = flux(lambda)*10^(-A(lambda)/2.5)
+# where A(lambda) = E(B-V)*[E(lambda-V)/E(B-V) + R] 
+# so taking R=3.1, A(lambda) = E(B-V)*[Col#2 + 3.1]
 
 # fit to DR16Q median 2sigma-clipped colours in multi-imag bins
 params = dict(plslp1=-0.349,
