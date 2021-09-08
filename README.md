@@ -10,11 +10,11 @@ with `astropy 4.0`, `matplotlib 3.0.2`, `numpy 1.16.2` and `scipy 1.2.1` from `a
 
 The code was written by Matthew Temple, with core functionality translated from
 earlier FORTRAN code written by Paul Hewett. The structure of the model is
-described in Temple, Hewett & Banerji (MNRAS submitted), which should be read
+described in Temple, Hewett & Banerji (2021, MNRAS in press), which should be read
 in conjunction with this file.
 
 If you use this code in a scientific publication, please cite
-Temple, Hewett & Banerji (2021, MNRAS submitted).
+Temple, Hewett & Banerji (2021).
 
 Contact: Matthew.Temple[at]mail.udp.cl
 
