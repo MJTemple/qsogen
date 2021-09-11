@@ -8,7 +8,7 @@ It requires `numpy`, `scipy`, and `astropy`; the examples below also use `matplo
 The code has been written on a RHEL7 Linux machine running `Python 3.6.7`,
 with `astropy 4.0`, `matplotlib 3.0.2`, `numpy 1.16.2` and `scipy 1.2.1` from `anaconda3`.
 
-The code was written by Matthew Temple, with core functionality translated from
+The code was written by [Matthew Temple](https://mjtemple.github.io), with core functionality translated from
 earlier FORTRAN code written by Paul Hewett. The structure of the model is
 described in Temple, Hewett & Banerji (2021, MNRAS in press), which should be read
 in conjunction with this file.
