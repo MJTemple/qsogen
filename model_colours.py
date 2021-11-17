@@ -3,6 +3,7 @@
 """
 Created on 2020 November 10
 Last edit 2021 March 13
+Edit 2021 November 17 to add DECam and HSC filters
 
 @author: Matthew Temple
 
@@ -15,9 +16,9 @@ Any filter of interest needs to be saved in the same directory as e.g.
 
 Default filters are SDSS AB, UKIDSS Vega, WISE Vega ugrizYJHKW12
 
-Conventional to use AB magnitudes for SDSS, KiDS, LSST, Euclid
- and Vega magnitudes for UKIDSS, VISTA and WISE.
-Note UKIDSS and VISTA calibrated to 2MASS which assumes Vega has
+Conventional to use AB magnitudes for SDSS, VISTA (KiDS), LSST, Euclid
+ and Vega magnitudes for UKIDSS and WISE.
+Note UKIDSS and non-KiDS VISTA calibrated to 2MASS which assumes Vega has
  zero mag; WISE also assumes Vega has zero mag.
 
 We use the 2007 Vega spectrum to produce Vega zeropoints.
@@ -45,6 +46,19 @@ Vega_zeropoints = dict(
     SDSS_r_Vega=8.455695e-03,
     SDSS_i_Vega=4.624980e-03,
     SDSS_z_Vega=6.676051e-04,
+    DECam_u_Vega=8.177943e-04,
+    DECam_g_Vega=1.903633e-02,
+    DECam_r_Vega=1.684878e-02,
+    DECam_i_Vega=1.283454e-02,
+    DECam_z_Vega=9.031628e-03,
+    DECam_Y_Vega=3.316464e-03,
+    HSC_g_Vega=1.881597e-02,
+    HSC_r_Vega=1.608603e-02,
+    HSC_r2_Vega=2.291566e-02,
+    HSC_i_Vega=8.728089e-03,
+    HSC_i2_Vega=1.396346e-02,
+    HSC_z_Vega=3.394019e-03,
+    HSC_Y_Vega=2.322250e-03,
     LSST_u_Vega=1.782632e-02,
     LSST_g_Vega=1.423635e-01,
     LSST_r_Vega=9.468552e-02,
@@ -75,6 +89,19 @@ AB_zeropoints = dict(
     SDSS_r_AB=9.641594e-03,
     SDSS_i_AB=6.418155e-03,
     SDSS_z_AB=1.078642e-03,
+    DECam_u_AB=1.104899e-03,
+    DECam_g_AB=1.742508e-02,
+    DECam_r_AB=1.991803e-02,
+    DECam_i_AB=1.868959e-02,
+    DECam_z_AB=1.455719e-02,
+    DECam_Y_AB=5.599771e-03,
+    HSC_g_AB=1.714996e-02,
+    HSC_r_AB=1.837621e-02,
+    HSC_r2_AB=2.615511e-02,
+    HSC_i_AB=1.253355e-02,
+    HSC_i2_AB=2.011298e-02,
+    HSC_z_AB=5.445445e-03,
+    HSC_Y_AB=3.848121e-03,
     LSST_u_AB=3.219424e-02,
     LSST_g_AB=1.298923e-01,
     LSST_r_AB=1.083751e-01,
@@ -109,6 +136,19 @@ for band in ['SDSS_u',
              'SDSS_r',
              'SDSS_i',
              'SDSS_z',
+             'DECam_u',
+             'DECam_g',
+             'DECam_r',
+             'DECam_i',
+             'DECam_z',
+             'DECam_Y',
+             'HSC_g',
+             'HSC_r',
+             'HSC_r2',
+             'HSC_i',
+             'HSC_i2',
+             'HSC_z',
+             'HSC_Y',
              'LSST_u',
              'LSST_g',
              'LSST_r',
@@ -334,6 +374,19 @@ def produce_zeropoints(system='Vega',
                                 'SDSS_r',
                                 'SDSS_i',
                                 'SDSS_z',
+                                'DECam_u',
+                                'DECam_g',
+                                'DECam_r',
+                                'DECam_i',
+                                'DECam_z',
+                                'DECam_Y',
+                                'HSC_g',
+                                'HSC_r',
+                                'HSC_r2',
+                                'HSC_i',
+                                'HSC_i2',
+                                'HSC_z',
+                                'HSC_Y',
                                 'LSST_u',
                                 'LSST_g',
                                 'LSST_r',
@@ -404,12 +457,24 @@ if __name__ == '__main__':
 """
 Derived delta_m = m_AB - m_Vega conversions are as follows, assuming
 Vega has zero magnitude in all bands (consistent with Hewett+ 2006)
-
 SDSS_u 0.916307531970178
 SDSS_g -0.10591218115027329
 SDSS_r 0.1424988257715102
 SDSS_i 0.35575085540603535
 SDSS_z 0.5208942026802013
+DECam_u 0.32669625325466756
+DECam_g -0.09602111037243544
+DECam_r 0.18169480639014704
+DECam_i 0.40804866596053224
+DECam_z 0.5182787728252919
+DECam_Y 0.5687374491977623
+HSC_g -0.10065875128954174
+HSC_r 0.14451767734892634
+HSC_r2 0.14356045219765853
+HSC_i 0.39288732951464894
+HSC_i2 0.3962084411908027
+HSC_z 0.5132977668531478
+HSC_Y 0.5483493698742289
 LSST_u 0.6417911975387529
 LSST_g -0.09953812415364369
 LSST_r 0.14661485653583178
