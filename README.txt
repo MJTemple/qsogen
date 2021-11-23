@@ -10,8 +10,8 @@ with astropy 4.0, matplotlib 3.0.2, numpy 1.16.2 and scipy 1.2.1 from anaconda3.
 
 The code was written by Matthew Temple, with core functionality translated from
 earlier FORTRAN code written by Paul Hewett. The structure of the model is
-described in Temple, Hewett & Banerji (2021, MNRAS in press), which should be read
-in conjunction with this file.
+described in Temple, Hewett & Banerji 2021MNRAS.508..737T (arXiv:2109.04472),
+which should be read in conjunction with this file.
 
 If you use this code in a scientific publication, please cite
 Temple, Hewett & Banerji (2021).
@@ -56,9 +56,22 @@ pl_ext_comp_03.sph
 If you want to use model_colours.py, you also need filter response files in the
 same directory, which must have the form [wavelength in A, filter response].
 Those filter response files currently provided are:
+DECam_u.filter
+DECam_g.filter
+DECam_r.filter
+DECam_i.filter
+DECam_z.filter
+DECam_Y.filter
 Euclid_H.filter
 Euclid_J.filter
 Euclid_Y.filter
+HSC_g.filter
+HSC_r.filter
+HSC_r2.filter
+HSC_i.filter
+HSC_i2.filter
+HSC_z.filter
+HSC_Y.filter
 LSST_g.filter
 LSST_i.filter
 LSST_r.filter
