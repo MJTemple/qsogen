@@ -2,9 +2,16 @@
 Introduction
 ------------
 
-`qsogen` is a collection of Python code to model Quasar colours, magnitudes and SEDs.
-It requires `numpy`, `scipy`, and `astropy`; the examples below also use `matplotlib`. 
+`qsogen` is a collection of Python code which models quasar colours, magnitudes and
+SEDs. It implements an empirically-motivated parametric model to efficiently
+account for the observed emission-line properties, host-galaxy contribution, dust
+reddening, hot dust emission, and IGM suppression in the rest-frame 900-30000A
+wavelength range for quasars with a wide range of redshift and luminosity.
 
+The code is packaged with a set of empirically-derived emission-line templates and
+an empirically-derived quasar dust extinction curve.
+
+`qsogen` requires `numpy`, `scipy`, and `astropy`; the examples below also use `matplotlib`. 
 The code has been written on a RHEL7 Linux machine running `Python 3.6.7`,
 with `astropy 4.0`, `matplotlib 3.0.2`, `numpy 1.16.2` and `scipy 1.2.1` from `anaconda3`.
 
@@ -16,9 +23,10 @@ described in
 which should be read in conjunction with this file.
 
 If you use this code in a scientific publication, please cite
-Temple, Hewett & Banerji (2021).
+[Temple, Hewett & Banerji (2021)](https://ui.adsabs.harvard.edu/abs/2021MNRAS.508..737T).
 
-Contact: Matthew.Temple[at]mail.udp.cl
+Comments, questions, suggestions and bug reports are welcomed by the first
+author: Matthew.Temple[at]mail.udp.cl
 
 Contents of this README file:
 * Introduction
