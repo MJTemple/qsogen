@@ -52,5 +52,5 @@ Those filter response files currently provided are:
 * WISE_W4.filter
 
 In addition, if you want to compute Vega zero-point magnitudes for any new filters,
-you need the Vega spectrum:
-* vega_2007.lis
+you need the Vega spectrum, available in the main code directory:
+* ../vega_2007.lis
