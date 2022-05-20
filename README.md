@@ -74,52 +74,20 @@ the S0 galaxy template from SWIRE, with columns [wavelength in A, f_lambda], and
 
 the Quasar extinction curve, with columns [wavelength in A, E(lambda-V)/E(B-V)].
 
-If you want to generate synthetic photometry using `model_colours.py`, you also need filter response files in the
-same directory, which must have the form [wavelength in A, filter response].
+If you want to generate synthetic photometry using `model_colours.py`,
+you also need the relevant filter response files in the same working directory,
+which must have the form [wavelength in A, filter response].
 
-Those filter response files currently provided are:
+Response files are currently provided (in the `filters/` subdirectory) for the following filters:
 
-* DECam_g.filter
-* DECam_i.filter
-* DECam_r.filter
-* DECam_u.filter
-* DECam_Y.filter
-* DECam_z.filter
-* Euclid_H.filter
-* Euclid_J.filter
-* Euclid_Y.filter
-* HSC_g.filter
-* HSC_i.filter
-* HSC_i2.filter
-* HSC_r.filter
-* HSC_r2.filter
-* HSC_Y.filter
-* HSC_z.filter
-* LSST_g.filter
-* LSST_i.filter
-* LSST_r.filter
-* LSST_u.filter
-* LSST_y.filter
-* LSST_z.filter
-* SDSS_g.filter
-* SDSS_i.filter
-* SDSS_r.filter
-* SDSS_u.filter
-* SDSS_z.filter
-* UKIDSS_H.filter
-* UKIDSS_J.filter
-* UKIDSS_K.filter
-* UKIDSS_Y.filter
-* UKIDSS_Z.filter
-* VISTA_H.filter
-* VISTA_J.filter
-* VISTA_Ks.filter
-* VISTA_Y.filter
-* VISTA_Z.filter
-* WISE_W1.filter
-* WISE_W2.filter
-* WISE_W3.filter
-* WISE_W4.filter
+* DECam ugrizY
+* Euclid YJH
+* HSC grizY, i2, r2
+* LSST ugrizy
+* SDSS ugriz
+* UKIDSS ZYJHK
+* VISTA ZYJHKs
+* WISE W1234
 
 In addition, if you want to compute Vega zero-point magnitudes for any new filters,
 you need the Vega spectrum:
@@ -303,7 +271,7 @@ If `gflag=True`, i.e. if the host galaxy component is switched on, then the
     To avoid problems, it is highly recommended to use a dense set of filters
     which cover a wide wavelength range. For example, even if you only want
     LSST ugrizy colours for redshifts 0<z<5, it is preferable to find all
-    LSST-Euclid-WISE ugrizyYJHKW1W2 colours using `get_colours()`, and then take
+    LSST-Euclid-WISE ugrizyYJHW1W2 colours using `get_colours()`, and then take
     the first 5 columns of the output matrix.
 
 In addition, if you pass a `**kwarg` to `Quasar_sed` which is not recognised, it
