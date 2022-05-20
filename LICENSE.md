@@ -12,8 +12,8 @@ furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
-Publications which make use of this code should reference Temple, Hewett & 
-Banerji (2021).
+Publications which make use of this code should reference
+[Temple, Hewett & Banerji (2021)](https://ui.adsabs.harvard.edu/abs/2021MNRAS.508..737T).
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
