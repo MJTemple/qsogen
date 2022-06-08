@@ -1,3 +1,6 @@
+
+# qsogen <a href="https://ascl.net/2205.003"><img src="https://img.shields.io/badge/ascl-2205.003-blue.svg?colorB=262255" alt="ascl:2205.003" /></a>
+
 ------------
 Introduction
 ------------
@@ -29,11 +32,11 @@ Comments, questions, suggestions and bug reports are welcomed by the first
 author: Matthew.Temple[at]mail.udp.cl
 
 Contents of this README file:
-* Introduction
-* File descriptions
-* A note on measures of luminosity
-* Example use cases
-* Exceptions
+* [Introduction](https://github.com/MJTemple/qsogen#introduction)
+* [File descriptions](https://github.com/MJTemple/qsogen#File-descriptions)
+* [A note on measures of luminosity](https://github.com/MJTemple/qsogen#A-note-on-measures-of-luminosity)
+* [Example use cases](https://github.com/MJTemple/qsogen#Example-use-cases)
+* [Exceptions](https://github.com/MJTemple/qsogen#Exceptions)
 
 -----------------
 File descriptions
