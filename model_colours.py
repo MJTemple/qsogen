@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 """
 Created on 2020 November 10
-Last edit 2021 March 13
+Public release 2021 March 13
 Edit 2021 November 17 to add DECam and HSC filters
+Edit 2022 June 08 to also allow filters to be stored in ./filters/
 
 @author: Matthew Temple
 
@@ -172,7 +173,10 @@ for band in ['SDSS_u',
              'WISE_W2',
              'WISE_W3',
              'WISE_W4']:
-    wavarr, response = np.genfromtxt(band+'.filter', unpack=True)
+    try:
+        wavarr, response = np.genfromtxt(band+'.filter', unpack=True)
+    except OSError:
+        wavarr, response = np.genfromtxt('filters/'+band+'.filter', unpack=True)
     wavarrs[band] = wavarr
     resparrs[band] = response
 
