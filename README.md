@@ -85,6 +85,7 @@ Response files are currently provided (in the `filters/` subdirectory) for the f
 
 * DECam ugrizY
 * Euclid YJH
+* GALEX FUV and NUV
 * HSC grizY, i2, r2
 * LSST ugrizy
 * SDSS ugriz
