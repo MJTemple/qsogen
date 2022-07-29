@@ -5,6 +5,7 @@ Created on 2020 November 10
 Public release 2021 March 13
 Edit 2021 November 17 to add DECam and HSC filters
 Edit 2022 June 08 to also allow filters to be stored in ./filters/
+Edit 2022 July 29 to add GALEX NUV and FUV filters
 
 @author: Matthew Temple
 
@@ -42,6 +43,8 @@ from qsosed import Quasar_sed
 
 # assume 2007 Vega spectrum has zero magnitude in all bands
 Vega_zeropoints = dict(
+    GALEX_NUV_Vega=4.638133e-01,
+    GALEX_FUV_Vega=9.411333e-02,
     SDSS_u_Vega=7.986921e-04,
     SDSS_g_Vega=1.071783e-02,
     SDSS_r_Vega=8.455695e-03,
@@ -85,6 +88,8 @@ Vega_zeropoints = dict(
     WISE_W4_Vega=4.489671e-05,
 )
 AB_zeropoints = dict(
+    GALEX_NUV_AB=2.143184e+00,
+    GALEX_FUV_AB=6.682505e-01,
     SDSS_u_AB=1.857387e-03,
     SDSS_g_AB=9.721695e-03,
     SDSS_r_AB=9.641594e-03,
@@ -132,7 +137,9 @@ zeropoints = {**Vega_zeropoints, **AB_zeropoints}
 
 
 wavarrs, resparrs = dict(), dict()
-for band in ['SDSS_u',
+for band in ['GALEX_NUV',
+             'GALEX_FUV',
+             'SDSS_u',
              'SDSS_g',
              'SDSS_r',
              'SDSS_i',
@@ -373,7 +380,9 @@ def sed2mags(filters, waves, fluxes, responses):
 
 
 def produce_zeropoints(system='Vega',
-                       filters=['SDSS_u',
+                       filters=['GALEX_NUV',
+                                'GALEX_FUV',
+                                'SDSS_u',
                                 'SDSS_g',
                                 'SDSS_r',
                                 'SDSS_i',
@@ -461,6 +470,8 @@ if __name__ == '__main__':
 """
 Derived delta_m = m_AB - m_Vega conversions are as follows, assuming
 Vega has zero magnitude in all bands (consistent with Hewett+ 2006)
+GALEX_NUV 1.6617906508900804
+GALEX_FUV 2.1282203802545143
 SDSS_u 0.916307531970178
 SDSS_g -0.10591218115027329
 SDSS_r 0.1424988257715102
