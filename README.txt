@@ -74,6 +74,8 @@ DECam_Y.filter
 Euclid_H.filter
 Euclid_J.filter
 Euclid_Y.filter
+GALEX_NUV.filter
+GALEX_FUV.filter
 HSC_g.filter
 HSC_r.filter
 HSC_r2.filter
