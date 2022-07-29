@@ -18,6 +18,8 @@ Those filter response files currently provided are:
 * Euclid_H.filter
 * Euclid_J.filter
 * Euclid_Y.filter
+* GALEX_FUV.filter
+* GALEX_NUV.filter
 * HSC_g.filter
 * HSC_i.filter
 * HSC_i2.filter
