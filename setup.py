@@ -12,8 +12,8 @@ setup(
     package_data={'qsogen': ['S0_template_norm.sed',
                              'pl_ext_comp_03.sph',
                              'qsosed_emlines_20210625.dat',
-                             'vega_2007.lis',
-                             'filters/*.filter',]
+                             'vega_2007.lis',],
+                  'filters': ['*.filter']
                    },
     packages=['qsogen'],
     install_requires=['numpy',
