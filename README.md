@@ -31,12 +31,34 @@ If you use this code in a scientific publication, please cite
 Comments, questions, suggestions and bug reports are welcomed by the first
 author: Matthew.Temple[at]mail.udp.cl
 
+The observed type-1 quasar population has an intrinsic scatter in the broad-band colours at
+any fixed redshift of the order of 0.1 mag (which increases with decreasing luminosity).
+Normally this is comparable to the uncertainty on the observed photometry, however, if you
+want to fit the model to individual objects, we recommend you implement a 0.1 mag floor on
+the uncertainty of each observed magnitude to account for the intrinsic model uncertainty.
+
 Contents of this README file:
 * [Introduction](https://github.com/MJTemple/qsogen#introduction)
+* [Change log](https://github.com/MJTemple/qsogen#change-log)
 * [File descriptions](https://github.com/MJTemple/qsogen#File-descriptions)
 * [A note on measures of luminosity](https://github.com/MJTemple/qsogen#A-note-on-measures-of-luminosity)
 * [Example use cases](https://github.com/MJTemple/qsogen#Example-use-cases)
 * [Exceptions](https://github.com/MJTemple/qsogen#Exceptions)
+
+----------
+Change log
+----------
+v1.0 (2021)
+
+Initial public release associated with MNRAS paper
+
+v1.1 (2023, in progress)
+
+1. Add installation via pip
+2. Significant change to default luminosity behaviour:
+   (i) tie Mi to L3000,
+   (ii) set L3000 from redshift
+3. Documentation updates
 
 -----------------
 File descriptions
@@ -103,13 +125,14 @@ A note on measures of luminosity
 
 There are two different measures of luminosity which can be input to the model.
 
-**`LogL3000`** controls the output monochromatic 3000A continuum luminosity in erg/s.
-    All this does is re-scale the output model flux appropriately.
+**`LogL3000`** controls the output monochromatic 3000A continuum luminosity in erg/s,
+    by re-scaling the output model flux appropriately.
     This should be used when you care about the absolute value of the flux units
     e.g. when using `get_mags` to return synthetic magnitudes, or using `get_mags`
     to fit the model to observed magnitudes and returning the luminosity of the
     observed quasar
-    (NB. in such cases `ebv` should also be a free parameter).
+    (NB. in such cases `ebv` should also be a free parameter,
+    and the photometric uncertainties should have a floor of 0.1mag).
     The default is to normalise the model such that L3000 = 10^46 erg/s.
 
 **`M_i`** represents the absolute i-band magnitude at z=2, as defined by 
