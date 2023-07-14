@@ -99,7 +99,7 @@ the S0 galaxy template from SWIRE, with columns [wavelength in A, f_lambda], and
 
 the Quasar extinction curve, with columns [wavelength in A, E(lambda-V)/E(B-V)].
 
-If you want to generate synthetic photometry using `model_colours.py`,
+7. If you want to generate synthetic photometry using `model_colours.py`,
 you also need the relevant filter response files in the same working directory,
 which must have the form [wavelength in A, filter response].
 
@@ -115,9 +115,9 @@ Response files are currently provided (in the `filters/` subdirectory) for the f
 * VISTA ZYJHKs
 * WISE W1234
 
-In addition, if you want to compute Vega zero-point magnitudes for any new filters,
+8. In addition, if you want to compute Vega zero-point magnitudes for any new filters,
 you need the Vega spectrum:
-* vega_2007.lis
+`vega_2007.lis`
 
 --------------------------------
 A note on measures of luminosity
