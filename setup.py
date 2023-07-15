@@ -8,7 +8,7 @@ setup(
     author='Matthew Temple',
     author_email='Matthew.Temple@mail.udp.cl',
     license='MIT',
-    # package_dir={'qsogen': ['qsosed', 'config', 'model_colours'],
+    package_dir={'qsogen': ['qsosed', 'model_colours'],},
     #              'filters': 'filters'},
     package_data={'qsogen': ['S0_template_norm.sed',
                              'pl_ext_comp_03.sph',
@@ -16,7 +16,7 @@ setup(
                              'vega_2007.lis',],
                   'filters': ['*.filter']
                    },
-    packages=['qsogen'],
+    # packages=['qsogen'],
     install_requires=['numpy',
                       'scipy',
                       'astropy',
