@@ -1,9 +1,13 @@
 from setuptools import setup
 
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
 setup(
     name='qsogen',
     version='1.1.0',    
     description='Model Quasar SEDs from Temple, Hewett & Banerji (2021) MNRAS 508, 737',
+    long_description=long_description,
     url='https://github.com/MJTemple/qsogen',
     author='Matthew Temple',
     author_email='Matthew.Temple@mail.udp.cl',
