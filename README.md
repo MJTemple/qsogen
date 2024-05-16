@@ -29,7 +29,7 @@ If you use this code in a scientific publication, please cite
 [Temple, Hewett & Banerji (2021)](https://ui.adsabs.harvard.edu/abs/2021MNRAS.508..737T).
 
 Comments, questions, suggestions and bug reports are welcomed by the first
-author: Matthew.Temple[at]mail.udp.cl
+author: matthew.j.temple[at]durham.ac.uk
 
 Contents of this README file:
 * [Introduction](https://github.com/MJTemple/qsogen#introduction)
