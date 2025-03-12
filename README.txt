@@ -73,6 +73,7 @@ DECam_z.filter
 DECam_Y.filter
 Euclid_H.filter
 Euclid_J.filter
+Euclid_VIS.filter
 Euclid_Y.filter
 GALEX_NUV.filter
 GALEX_FUV.filter
