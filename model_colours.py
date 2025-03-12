@@ -6,6 +6,7 @@ Public release 2021 March 13
 Edit 2021 November 17 to add DECam and HSC filters
 Edit 2022 June 08 to also allow filters to be stored in ./filters/
 Edit 2022 July 29 to add GALEX NUV and FUV filters
+Edit 2025 March 12 to add Euclid VIS filter
 
 @author: Matthew Temple
 
@@ -69,6 +70,7 @@ Vega_zeropoints = dict(
     LSST_i_Vega=5.861893e-02,
     LSST_z_Vega=3.521813e-02,
     LSST_y_Vega=1.643208e-02,
+    Euclid_VIS_Vega=3.170234e-02,
     Euclid_Y_Vega=7.743718e-03,
     Euclid_J_Vega=7.092825e-03,
     Euclid_H_Vega=4.253855e-03,
@@ -114,6 +116,7 @@ AB_zeropoints = dict(
     LSST_i_AB=8.188370e-02,
     LSST_z_AB=5.619859e-02,
     LSST_y_AB=2.718541e-02,
+    Euclid_VIS_AB=4.040447e-02,
     Euclid_Y_AB=1.454023e-02,
     Euclid_J_AB=1.846444e-02,
     Euclid_H_AB=1.634865e-02,
@@ -163,6 +166,7 @@ for band in ['GALEX_NUV',
              'LSST_i',
              'LSST_z',
              'LSST_y',
+             'Euclid_VIS',
              'Euclid_Y',
              'Euclid_J',
              'Euclid_H',
@@ -406,6 +410,7 @@ def produce_zeropoints(system='Vega',
                                 'LSST_i',
                                 'LSST_z',
                                 'LSST_y',
+                                'Euclid_VIS',
                                 'Euclid_Y',
                                 'Euclid_J',
                                 'Euclid_H',
@@ -496,6 +501,7 @@ LSST_r 0.14661485653583178
 LSST_i 0.36289892923935885
 LSST_z 0.5073978180142668
 LSST_y 0.5466083665474974
+Euclid_VIS 0.2633452374412946
 Euclid_Y 0.6840543681829497
 Euclid_J 1.0387922398669232
 Euclid_H 1.461748035493578
