@@ -84,7 +84,7 @@ which must have the form [wavelength in A, filter response].
 Response files are currently provided (in the `filters/` subdirectory) for the following filters:
 
 * DECam ugrizY
-* Euclid YJH
+* Euclid YJH+VIS
 * GALEX FUV and NUV
 * HSC grizY, i2, r2
 * LSST ugrizy
